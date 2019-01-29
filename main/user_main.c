@@ -10,6 +10,24 @@
 
 #include "esp_system.h"
 
+#include "driver/gpio.h"
+
+
+void initIO(void)
+{
+	gpio_config_t in;
+	in.mode=GPIO_MODE_INPUT;
+	in.pin_bit_mask = GPIO_Pin_4 | GPIO_Pin_5;
+	gpio_config(&in);
+
+	gpio_config_t out;
+        out.mode=GPIO_MODE_OUTPUT;
+       	out.pin_bit_mask = GPIO_Pin_4 | GPIO_Pin_5;
+        gpio_config(&out);
+}
+
+
+
 /******************************************************************************
  * FunctionName : app_main
  * Description  : entry of user application, init user function here
